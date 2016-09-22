@@ -12,7 +12,8 @@ using namespace std;
 using namespace cimg_library;
 using namespace arma;
 
-char const *srcImg = "../ImageCompressionANN/256px-Lenna.png";
+// path to image
+char const *srcImg = "../ANNImageCompression/256px-Lenna.png";
 
 int main(){
     ImageModel model(srcImg);

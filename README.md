@@ -1,6 +1,6 @@
 # Artificial Neural Networks (ANN) Image Compression
 
-for laboratory work.
+Bottleneck-type Neural Net Architecture for Image Compression for laboratory work.
 
 ## Library
 
@@ -27,6 +27,8 @@ p – number of neuron for second layer;
 e – error degree;
 
 α – learning step;
+
+char const \*srcImg  - path to image **(change in main.cpp)**
 
 
 ##Output:

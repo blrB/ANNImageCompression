@@ -16,7 +16,7 @@ class ImageModel
 private:
     int RGB = 3;
     int imageWidth;
-    int imageHight;
+    int imageHeight;
     int n;
     int m;
     int p;
@@ -27,11 +27,6 @@ private:
     vector<RectangleModel> rectangleModelList;
     mat W;
     mat W_;
-public:
-    ImageModel(char const * patch);
-    void initANN();
-    void run();
-    void createOutputImage();
     int convertRGBToOutput(double rgb);
     double getErrorDegree(mat deltaX);
     void createWeightMatrix();
@@ -39,6 +34,11 @@ public:
     void normalizeMatrix(mat matrix);
     void normalizeMatrixs();
     double adaptiveLearningStep(mat matrix);
+public:
+    ImageModel(char const * patch);
+    void run();
+    void initANN();
+    void createOutputImage();
 };
 
 #endif // IMAGEMODEL_H

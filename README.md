@@ -15,10 +15,11 @@ sudo apt-get install libarmadillo-dev libarmadillo6
 sudo apt-get install cimg-dev
 
 ```
+Before installing Armadillo, it's recommended to install LAPACK, BLAS and ATLAS
 
 ##Input:
 
-n – hight of rectangle;
+n – height of rectangle;
 
 m – width of rectangle;
 
@@ -28,7 +29,7 @@ e – error degree;
 
 α – learning step;
 
-char const \*srcImg  - path to image **(change in main.cpp)**
+argv[1] - path to image
 
 
 ##Output:
@@ -38,7 +39,6 @@ Z – compression ratio;
 Iteration – number of iterations;
 
 E – total error for the training sample;
-
 
 ## Example
 

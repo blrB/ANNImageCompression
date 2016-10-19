@@ -16,13 +16,13 @@ ImageModel::ImageModel(char const * patch){
     CImg<unsigned char> src(patch);
     initANN();
     imageWidth = src.width();
-    imageHight = src.height();
+    imageHeight = src.height();
     for (int indexW = 0; indexW < imageWidth; indexW +=m){
-        for (int indexH = 0; indexH < imageHight; indexH +=n){
+        for (int indexH = 0; indexH < imageHeight; indexH +=n){
             RectangleModel bufferRectangle(indexW,indexH);
             for (int i = indexW; i < indexW + m; i++){
                 for (int j = indexH; j < indexH + n; j++) {
-                    if (i < imageWidth && j < imageHight){
+                    if (i < imageWidth && j < imageHeight){
                         bufferRectangle.addElement(convertColor((int)src(i,j,0,0)));
                         bufferRectangle.addElement(convertColor((int)src(i,j,0,1)));
                         bufferRectangle.addElement(convertColor((int)src(i,j,0,2)));
@@ -40,7 +40,6 @@ ImageModel::ImageModel(char const * patch){
     L = rectangleModelList.size();
     nmRGB = n * m * RGB;
     createWeightMatrix();
-    run();
 }
 
 void ImageModel::initANN(){
@@ -119,7 +118,7 @@ double ImageModel::adaptiveLearningStep(mat matrix){
 }
 
 void ImageModel::createOutputImage(){
-    CImg<float> image(imageWidth,imageHight,1,3,0);
+    CImg<float> image(imageWidth,imageHeight,1,3,0);
     float color[3];
     for (int index = 0; index < L; index++){
         int startX = rectangleModelList[index].getStartX();
@@ -133,7 +132,7 @@ void ImageModel::createOutputImage(){
                 color[0] = convertRGBToOutput(X_(0, pixel++));
                 color[1] = convertRGBToOutput(X_(0, pixel++));
                 color[2] = convertRGBToOutput(X_(0, pixel++));
-                if (i < imageWidth && j < imageHight){
+                if (i < imageWidth && j < imageHeight){
                     image.draw_point(i,j,color);
                 }
             }

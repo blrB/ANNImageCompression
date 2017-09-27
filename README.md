@@ -17,7 +17,7 @@ sudo apt-get install cimg-dev
 ```
 Before installing Armadillo, it's recommended to install LAPACK, BLAS and ATLAS
 
-##Input:
+## Input:
 
 n – height of rectangle;
 
@@ -32,7 +32,7 @@ e – error degree;
 argv[1] - path to image
 
 
-##Output:
+## Output:
 
 Z – compression ratio;
 
